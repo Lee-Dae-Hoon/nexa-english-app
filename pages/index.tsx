@@ -6,10 +6,17 @@ export default function Home() {
   const [day, setDay] = useState("Monday");
 
   useEffect(() => {
-    fetch("/api/gpt-routine")
-      .then((res) => res.json())
-      .then((data) => setRoutine(data));
+    const fakeData = {
+      Monday: ["Hello!", "How are you?", "Nice to meet you!"],
+      Tuesday: ["I’m from Korea.", "What’s your name?"],
+      Wednesday: ["It’s sunny today.", "I love music."],
+      Thursday: ["I’m learning English!", "Let’s practice."],
+      Friday: ["Good job!", "You did well this week!"]
+    };
+  
+    setRoutine(fakeData);
   }, []);
+  
 
   const todayLines = routine[day] || [];
 
